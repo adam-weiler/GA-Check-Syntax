@@ -2,7 +2,8 @@ def check_syntax(str):
   openables = {
     "(": ")",
     "[": "]",
-    "{": "}"
+    "{": "}",
+    "<": ">"
   }
   open = []
   opening_chars = openables.keys()
@@ -40,16 +41,33 @@ def check_syntax(str):
 
   return not open
 
-print(check_syntax("(this)[] is some text"))
+# Exercise 1
+# print(check_syntax("(this)[] is some text"))  # True
+# print("*****\n")
+
+# print(check_syntax("(this)] is some text"))  # False
+# print("*****\n")
+
+# print(check_syntax("[(this] is some text"))  #False
+# print("*****\n")
+
+# print(check_syntax("[this][ is some text"))  # False
+# print("*****\n")
+
+# print(check_syntax("[this] is some text"))  # True
+
+
+# Exercise 2
+print(check_syntax("<html> (this)[] is some text</html>"))  # True
 print("*****\n")
 
-print(check_syntax("(this)] is some text"))
+print(check_syntax("<html> (this)] is some text</html>"))  # False
 print("*****\n")
 
-print(check_syntax("[(this] is some text"))
+print(check_syntax("<html> [(this] is some text</html>"))  # False
 print("*****\n")
 
-print(check_syntax("[this][ is some text"))
+print(check_syntax("<html> [this][ is some text</html>"))  # False
 print("*****\n")
 
-print(check_syntax("[this] is some text"))
+print(check_syntax("<html> [this] is some text</html"))  # False
